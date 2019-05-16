@@ -27,5 +27,5 @@ module.exports = app => {
       type: Object,
     },
   });
-  return mongoose.model('Users', UserSchema);
+  return mongoose.model('User', UserSchema);
 };

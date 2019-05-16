@@ -38,12 +38,15 @@ class UserController extends Controller {
     // 组装参数
     const req = ctx.request.body;
     // 调用 Service 进行业务处理
-    const res = await service.users.create(req);
+    const res = await service.user.create(req);
     // 设置响应内容和响应状态码
-    ctx.body = {
-      id: res.id,
-    };
+    ctx.body = res;
     ctx.status = 201;
+  }
+  async findAll() {
+    const res = await this.service.user.findAll();
+    console.log(res);
+    this.ctx.body = res;
   }
 }
 
