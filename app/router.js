@@ -13,4 +13,6 @@ module.exports = app => {
   router.get('/api/user/find', controller.user.findAll);
   router.post('/api/user/register', controller.session.register);
   router.post('/api/user/login', controller.session.signIn);
+  router.post('/api/food/insert', controller.food.create);
+  router.get('/api/food/find-by-shopname/:name', controller.food.findByShopName);
 };
