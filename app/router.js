@@ -11,5 +11,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.post('/api/user/create', controller.user.create);
   router.get('/api/user/find', controller.user.findAll);
-  // router.post('/api/users', controller.users.create);
+  router.post('/api/user/register', controller.session.register);
+  router.post('/api/user/login', controller.session.signIn);
 };

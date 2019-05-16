@@ -2,9 +2,6 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const UserSchema = new mongoose.Schema({
-    uid: {
-      type: Number,
-    },
     userName: {
       type: String,
     },
