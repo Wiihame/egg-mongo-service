@@ -1,24 +1,32 @@
 'use strict';
-const Controller = require('egg').Controller;
+
+const Controller = require('./base');
 
 const createRule = {
-  name: {
-    type: 'string',
+  food: {
+    type: 'array',
   },
-  foodType: {
+  shopName: {
     type: 'string',
   },
   price: {
     type: 'number',
   },
-  foodImgUrl: {
+  customerName: {
     type: 'string',
   },
-  shopName: {
+  customerAddress: {
+    type: 'string',
+  },
+  contactLink: {
+    type: 'number',
+  },
+  userId: {
     type: 'string',
   },
 };
-class FoodController extends Controller {
+
+class OrderController extends Controller {
   async create() {
     const {
       ctx,
@@ -29,21 +37,21 @@ class FoodController extends Controller {
     // 组装参数
     const req = ctx.request.body;
     // 调用 Service 进行业务处理
-    const res = await service.food.create(req);
+    const res = await service.order.create(req);
     // 设置响应内容和响应状态码
     ctx.body = res;
     ctx.status = 201;
   }
-  async findByShopName() {
+  async findOrderByUserId() {
     const {
       ctx,
       service,
     } = this;
-    const params = ctx.params;
-    const res = await service.food.findByShopName(params);
+    const query = ctx.query;
+    const res = await service.order.findOrderByUserId(query);
     console.log(res);
     this.ctx.body = res;
   }
 }
 
-module.exports = FoodController;
+module.exports = OrderController;
