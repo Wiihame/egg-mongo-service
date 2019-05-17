@@ -20,4 +20,7 @@ module.exports = app => {
   router.get('/api/comment/find-by-orderid/', controller.comment.findCommentByOrderId);
   router.post('/api/order/insert', controller.order.create);
   router.get('/api/order/find-by-userid/', controller.order.findOrderByUserId);
+  router.post('/api/shop/insert', controller.shop.create);
+  router.get('/api/shop/find-all', controller.shop.findAll);
+  router.get('/api/shop/find-by-shopname', controller.shop.findShopByShopName);
 };
