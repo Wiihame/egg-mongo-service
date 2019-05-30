@@ -29,13 +29,13 @@ const createRule = {
   wmPoiScore: {
     type: 'number',
   },
+  bulletin: {
+    type: 'string',
+  },
 };
 class ShopController extends Controller {
   async create() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     // 校验参数
     ctx.validate(createRule);
     // 组装参数

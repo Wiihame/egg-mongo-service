@@ -13,6 +13,7 @@ module.exports = app => {
         picUrl: req.picUrl,
         shippingFee: req.shippingFee,
         wmPoiScore: req.wmPoiScore,
+        bulletin: req.bulletin,
       });
       order.save();
     }

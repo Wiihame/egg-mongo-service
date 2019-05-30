@@ -30,6 +30,9 @@ module.exports = app => {
     wmPoiScore: {
       type: Number,
     },
+    bulletin: {
+      type: String,
+    },
   });
   return mongoose.model('Shop', ShopSchema);
 };

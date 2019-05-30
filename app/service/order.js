@@ -21,6 +21,10 @@ module.exports = app => {
       });
       return result;
     }
+    async findAll() {
+      const result = await this.ctx.model.Order.find({});
+      return result;
+    }
   }
   return OrderService;
 };

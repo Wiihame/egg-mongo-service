@@ -25,10 +25,7 @@ const createRule = {
 
 class CommentController extends Controller {
   async create() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     // 校验参数
     ctx.validate(createRule);
     // 组装参数
@@ -40,22 +37,21 @@ class CommentController extends Controller {
     ctx.status = 201;
   }
   async findCommentByUserId() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     const params = ctx.params;
     const res = await service.comment.findCommentByUserId(params);
     console.log(res);
     this.ctx.body = res;
   }
   async findCommentByOrderId() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     const query = ctx.query;
     const res = await service.comment.findCommentByOrderId(query);
+    console.log(res);
+    this.ctx.body = res;
+  }
+  async findAllComments() {
+    const res = await this.service.comment.findAll();
     console.log(res);
     this.ctx.body = res;
   }

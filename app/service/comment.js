@@ -27,6 +27,10 @@ module.exports = app => {
       });
       return result;
     }
+    async findAll() {
+      const result = await this.ctx.model.Comment.find({});
+      return result;
+    }
   }
   return CommentService;
 };

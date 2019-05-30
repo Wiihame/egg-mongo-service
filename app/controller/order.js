@@ -28,10 +28,7 @@ const createRule = {
 
 class OrderController extends Controller {
   async create() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     // 校验参数
     ctx.validate(createRule);
     // 组装参数
@@ -43,12 +40,14 @@ class OrderController extends Controller {
     ctx.status = 201;
   }
   async findOrderByUserId() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     const query = ctx.query;
     const res = await service.order.findOrderByUserId(query);
+    console.log(res);
+    this.ctx.body = res;
+  }
+  async findAllOrders() {
+    const res = await this.service.order.findAll();
     console.log(res);
     this.ctx.body = res;
   }

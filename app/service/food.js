@@ -9,6 +9,7 @@ module.exports = app => {
         price: req.price,
         foodImgUrl: req.foodImgUrl,
         shopName: req.shopName,
+        description: req.description,
       });
       food.save();
     }

@@ -18,6 +18,9 @@ module.exports = app => {
     shopName: {
       type: String,
     },
+    description: {
+      type: String,
+    },
   });
   return mongoose.model('Food', FoodSchema);
 };

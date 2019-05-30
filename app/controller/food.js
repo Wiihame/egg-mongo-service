@@ -17,13 +17,13 @@ const createRule = {
   shopName: {
     type: 'string',
   },
+  description: {
+    type: 'string',
+  },
 };
 class FoodController extends Controller {
   async create() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     // 校验参数
     ctx.validate(createRule);
     // 组装参数
@@ -35,10 +35,7 @@ class FoodController extends Controller {
     ctx.status = 201;
   }
   async findByShopName() {
-    const {
-      ctx,
-      service,
-    } = this;
+    const { ctx, service } = this;
     const params = ctx.params;
     const res = await service.food.findByShopName(params);
     console.log(res);
